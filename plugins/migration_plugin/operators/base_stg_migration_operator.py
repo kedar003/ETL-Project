@@ -1,6 +1,6 @@
 from airflow.models import BaseOperator
-from migration_plugin.hooks.postgres_migration_hook import PostgresMigrationHook
-from migration_plugin.utils.migration_utils import upsert_rows_batch
+from plugins.migration_plugin.hooks.postgres_migration_hook import PostgresMigrationHook
+from plugins.migration_plugin.utils.migration_utils import upsert_rows_batch
 from datetime import datetime
 import re
 

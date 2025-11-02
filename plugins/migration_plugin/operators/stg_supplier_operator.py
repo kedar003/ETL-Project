@@ -1,7 +1,7 @@
 from plugins.migration_plugin.operators.base_stg_migration_operator import BaseStgMigrationOperator
-from migration_plugin.utils.transformers import select_stg_supplier_sql
+from plugins.migration_plugin.utils.transformers import select_stg_supplier_sql
 from config.migration_config import DST_CONN_ID, TABLES, CONSTRAINTS
-from migration_plugin.utils.notification_utils import notify_failure
+from plugins.migration_plugin.utils.notification_utils import notify_failure
 
 class StgSupplierOperator(BaseStgMigrationOperator):
     def __init__(self, **kwargs):
