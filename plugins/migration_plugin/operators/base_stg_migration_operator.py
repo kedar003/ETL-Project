@@ -42,14 +42,14 @@ class BaseStgMigrationOperator(BaseOperator):
         """Return last updated timestamp or fallback for full load"""
         try:
             last_updated = dst_hook.get_last_updated_at(self.target_table)
-            return last_updated or datetime(1900, 1, 1)
+            return last_updated or datetime(2024, 1, 1)
         except Exception as e:
             self.log.warning(
                 "Could not get last_updated_at for %s: %s. Defaulting to full load.",
                 self.target_table,
                 str(e),
             )
-            return datetime(1900, 1, 1)
+            return datetime(2024, 1, 1)
 
     def fetch_data_batches(self, dst_conn, sql: str):
         """Fetch rows in batches using regular cursor and fetchmany"""
