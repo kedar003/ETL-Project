@@ -1,0 +1,8 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+# Ignore virtual environment directories
+venv/
+.env
+docker-compose.yaml
