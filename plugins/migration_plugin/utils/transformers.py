@@ -1,7 +1,6 @@
 def select_stg_supplier_sql(last_updated_at: str, table_name="public.vw_supplier_flat") -> str:
     return f"""
-        SELECT    
-        line_item_pk,
+        SELECT line_item_pk,
         line_item_external_id,
         line_item_name,
         parent_line_item_pk,
@@ -53,8 +52,7 @@ def select_stg_supplier_sql(last_updated_at: str, table_name="public.vw_supplier
         target_year,
         target_month,
         target_quarter
-        from {table_name}
-        where updated_at >= '{last_updated_at}'::timestamp
+        from public.vw_supplier_flat where updated_at >= '{last_updated_at}'::timestamp
     """
  
  
