@@ -1,7 +1,7 @@
 # dags/data_migration_dag.py
 from datetime import datetime
 from airflow.decorators import dag
-from migration_plugin.operators import (   
+from plugins.migration_plugin.operators import (   
     StgSupplierOperator,
     StgMarketerOperator,    
 )
