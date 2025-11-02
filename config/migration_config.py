@@ -3,8 +3,8 @@ SRC_CONN_ID = "SOURCE_DB"
 DST_CONN_ID = "DESTINATION_DB"
 
 TABLES = {    
-    "stg_supplier": "stagging.supplier_flat_tbl",   
-    "stg_marketer": "stagging.marketer_flat_tbl"   
+    "stg_supplier": "public.supplier_flat_tbl",   
+    "stg_marketer": "public.marketer_flat_tbl"   
 }
 
 # Per-table primary key / unique constraint names used by ON CONFLICT ON CONSTRAINT <name>
