@@ -75,7 +75,7 @@ class BaseStgMigrationOperator(BaseOperator):
         dst_hook = PostgresMigrationHook(postgres_conn_id=self.dst_conn_id)        
             
         last_updated_at = self.get_last_updated_at(dst_hook)
-        self.log.info("Last updated at for %s: %s", self.target_table, last_updated_at)
+        self.log.info("Test2: Last updated at for %s: %s", self.target_table, last_updated_at)
 
         sql = self.transform_sql(last_updated_at)
         self.log.info("Executing SQL for %s", self.target_table)
@@ -101,4 +101,4 @@ class BaseStgMigrationOperator(BaseOperator):
                     page_size=self.page_size,
                 )
 
-        self.log.info("STG migration completed for %s. Total rows: %d", self.target_table, total_rows)
+        self.log.info("Test3:STG migration completed for %s. Total rows: %d", self.target_table, total_rows)
