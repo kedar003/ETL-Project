@@ -45,7 +45,7 @@ class BaseStgMigrationOperator(BaseOperator):
             return last_updated or datetime(2024, 1, 1)
         except Exception as e:
             self.log.warning(
-                "Could not get last_updated_at for %s: %s. Defaulting to full load.",
+                "Test : Could not get last_updated_at for %s: %s. Defaulting to full load.",
                 self.target_table,
                 str(e),
             )
