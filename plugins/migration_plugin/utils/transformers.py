@@ -1,4 +1,6 @@
-def select_stg_supplier_sql(last_updated_at: str, table_name="public.vw_supplier_flat") -> str:
+from config.migration_config import VIEW
+
+def select_stg_supplier_sql(last_updated_at: str, table_name=VIEW["stg_supplier_view"]) -> str:
     return f"""
         SELECT line_item_pk,
         line_item_external_id,
@@ -52,11 +54,11 @@ def select_stg_supplier_sql(last_updated_at: str, table_name="public.vw_supplier
         target_year,
         target_month,
         target_quarter
-        from public.vw_supplier_flat where updated_at >= '{last_updated_at}'::timestamp
+        from {table_name} where updated_at >= '{last_updated_at}'::timestamp
     """
  
  
-def select_stg_marketer_sql(last_updated_at: str) -> str:
+def select_stg_marketer_sql(last_updated_at: str,table_name=VIEW["stg_marketer_view"]) -> str:
     return f"""
         SELECT
             line_item_pk,
@@ -115,6 +117,6 @@ def select_stg_marketer_sql(last_updated_at: str) -> str:
             target_end_year,
             target_end_month,
             target_end_quarter
-        from public.vw_marketer_flat
+        from {table_name}
         where updated_at >= '{last_updated_at}'::timestamp        
     """

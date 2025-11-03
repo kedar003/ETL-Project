@@ -1,6 +1,6 @@
 from plugins.migration_plugin.operators.base_stg_migration_operator import BaseStgMigrationOperator
 from plugins.migration_plugin.utils.transformers import select_stg_supplier_sql
-from config.migration_config import DST_CONN_ID, TABLES, CONSTRAINTS
+from config.migration_config import DST_CONN_ID, TABLES, CONSTRAINTS,VIEW
 from plugins.migration_plugin.utils.notification_utils import notify_failure
 
 class StgSupplierOperator(BaseStgMigrationOperator):
@@ -16,4 +16,4 @@ class StgSupplierOperator(BaseStgMigrationOperator):
         )
 
     def transform_sql(self, last_updated_at: str) -> str:
-        return select_stg_supplier_sql(last_updated_at, table_name="public.dz_cs_campaigns")
+        return select_stg_supplier_sql(last_updated_at, table_name=VIEW["stg_supplier_view"])
