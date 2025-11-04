@@ -6,7 +6,7 @@ from plugins.migration_plugin.utils.notification_utils import notify_failure
 class StgMarketerOperator(BaseStgMigrationOperator):
     def __init__(self, **kwargs):
         super().__init__(
-             dst_conn_id=DST_CONN_ID,            
+            dst_conn_id=DST_CONN_ID,            
             target_table=TABLES["stg_marketer"],            
             constraint_name=CONSTRAINTS["stg_marketer"],
             conflict_cols=["tenant_code"],

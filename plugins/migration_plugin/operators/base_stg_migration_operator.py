@@ -45,7 +45,7 @@ class BaseStgMigrationOperator(BaseOperator):
             return last_updated or datetime(2024, 1, 1)
         except Exception as e:
             self.log.warning(
-                "Test : Could not get last_updated_at for %s: %s. Defaulting to full load.",
+                "Could not get last_updated_at for %s: %s. Defaulting to full load.",
                 self.target_table,
                 str(e),
             )
@@ -75,7 +75,7 @@ class BaseStgMigrationOperator(BaseOperator):
         dst_hook = PostgresMigrationHook(postgres_conn_id=self.dst_conn_id)        
             
         last_updated_at = self.get_last_updated_at(dst_hook)
-        self.log.info("Test2: Last updated at for %s: %s", self.target_table, last_updated_at)
+        self.log.info("Last updated at for %s: %s", self.target_table, last_updated_at)
 
         sql = self.transform_sql(last_updated_at)
         self.log.info("Executing SQL for %s", self.target_table)
@@ -101,4 +101,4 @@ class BaseStgMigrationOperator(BaseOperator):
                     page_size=self.page_size,
                 )
 
-        self.log.info("Test3:STG migration completed for %s. Total rows: %d", self.target_table, total_rows)
+        self.log.info("STG migration completed for %s. Total rows: %d", self.target_table, total_rows)
