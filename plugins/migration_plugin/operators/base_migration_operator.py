@@ -1,7 +1,7 @@
 from airflow.models import BaseOperator
 from plugins.migration_plugin.hooks.postgres_migration_hook import PostgresMigrationHook
 from plugins.migration_plugin.utils.migration_utils import upsert_rows_batch
-from plugins.migration_plugin.schema_validator_sqlalchemy import SchemaValidator
+from plugins.migration_plugin.utils.schema_validator_sqlalchemy import SchemaValidator
 from migration_plugin.utils import data_validation_utils as dq
 from config.migration_config import SRC_CONN_ID, DST_CONN_ID,DEFAULT_PAGE_SIZE,DEFAULT_BATCH_SIZE
 from datetime import datetime

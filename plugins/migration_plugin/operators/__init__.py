@@ -7,5 +7,5 @@ __all__ = [
     "CampaignMigrationOperator",
     "LineItemsMigrationOperator",
     "LeadMasterMigrationOperator",
-    "LineItemStatusOperator",
+    "LineItemStatusOperator"
 ]

@@ -1,4 +1,4 @@
-from .base_migration_operator import BaseMigrationOperator
+from  plugins.migration_plugin.operators.base_migration_operator import BaseMigrationOperator 
 from config.migration_config import SRC_CONN_ID, DST_CONN_ID, TABLES, CONSTRAINTS
 from migration_plugin.utils.notification_utils import notify_failure
 
