@@ -3,7 +3,7 @@ from airflow.decorators import dag, task_group
 from airflow.operators.empty import EmptyOperator
 
 # import your custom migration operators
-from migration_plugin.operators import (
+from plugins.migration_plugin.operators import (
     CampaignMigrationOperator,
     LineItemsMigrationOperator,
     LeadMasterMigrationOperator,
