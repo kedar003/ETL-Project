@@ -2,15 +2,20 @@
 SRC_CONN_ID = "SOURCE_DB"
 DST_CONN_ID = "DESTINATION_DB"
 
-TABLES = {    
-    "stg_supplier": "staging.supplier_flat_tbl",   
-    "stg_marketer": "staging.marketer_flat_tbl"   
+TABLES = {
+    "campaign": "public.dz_cs_campaigns",
+    "lead_master": "public.dz_cs_lead_master",
+    "line_items": "public.dz_cs_line_items",
+    "line_item_status": "public.dz_cs_lead_line_item_status",
+    "rollup": "public.stg_lead_rollup_by_line_item"
 }
-
 # Per-table primary key / unique constraint names used by ON CONFLICT ON CONSTRAINT <name>
-CONSTRAINTS = {    
-    "stg_supplier": "uq_sup_cam_line_lead_version",    
-    "stg_marketer": "uq_cam_line_lead_version"    
+CONSTRAINTS = {
+    "campaign": "dz_cs_campaigns_pkey",
+    "lead_master": "dz_lead_master_pkey",
+    "line_items": "dz_cs_line_items_pkey",
+    "line_item_status": "dz_lead_lineitem_status_pkey",
+    "rollup": "slrbli_line_item_primary_key",
 }
 
 VIEW = {    
