@@ -1,7 +1,7 @@
 from datetime import datetime
-from airflow.decorators import dag, task_group
+from airflow.decorators import dag
 from airflow.operators.empty import EmptyOperator
-
+from airflow.utils.task_group import TaskGroup
 # import your custom migration operators
 from plugins.migration_plugin.operators import (
     CampaignMigrationOperator,
@@ -23,7 +23,7 @@ def data_migration_dag():
     end = EmptyOperator(task_id="end")
 
     # ---------------- MIGRATION GROUP ----------------
-    with task_group("migration") as migration:
+    with TaskGroup("migration") as migration:
         migrate_campaign = CampaignMigrationOperator(task_id="migrate_campaign")
         migrate_line_items = LineItemsMigrationOperator(task_id="migrate_line_items")
         migrate_lead_master = LeadMasterMigrationOperator(task_id="migrate_lead_master")
