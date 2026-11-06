@@ -23,7 +23,7 @@ VIEW = {
     "stg_marketer_view": "staging.vw_marketer_flat"   
 }
 
-NOTIFICATION_EMAILS = ["yogesh.lohar@digitalzone.com"]
+NOTIFICATION_EMAILS = [""]
 
 DEFAULT_BATCH_SIZE = 10000
 DEFAULT_PAGE_SIZE = 1000
